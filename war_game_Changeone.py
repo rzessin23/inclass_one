@@ -80,7 +80,8 @@ class Deck:
             self.counter += 1
             return result
         else:
-            print("No more cards to deal. The deck is empty.")
+            print("No more cards to deal. The deck is empty. Resetting the deck.")
+            self.counter = 0  # Reset the counter to allow re-dealing from the beginning
             return None
 
     # Randomly shuffles the deck array seven times.

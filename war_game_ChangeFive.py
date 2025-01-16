@@ -75,7 +75,7 @@ class Deck:
         # Ensure the deck has the correct number of cards before shuffling
         if len(self.deck) == len(face) * len(suit):
             if not hasattr(self, 'shuffled') or not self.shuffled:  # Check if shuffled flag exists and is False
-                for i in range(7):
+                for i in range(5):  # Changed shuffle count to 5 for fewer shuffles
                     random.shuffle(self.deck)
                 self.shuffled = True  # Set shuffled flag to True after shuffling
         else:

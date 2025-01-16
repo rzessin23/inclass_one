@@ -61,6 +61,8 @@ class Deck:
     # It fills a deck with 52 unique card, and then uses random.shuffle to randomly order the deck
     # The counter will be used to indicate which card is at the "top" of the deck
     # i.e. all cards above counter will have been dealt
+    import random
+
     def __init__(self):
         self.deck = []
         self.counter = 0
@@ -72,8 +74,10 @@ class Deck:
 
         # Ensure the deck has the correct number of cards before shuffling
         if len(self.deck) == len(face) * len(suit):
-            for i in range(7):
-                random.shuffle(self.deck)
+            if not hasattr(self, 'shuffled') or not self.shuffled:  # Check if shuffled flag exists and is False
+                for i in range(7):
+                    random.shuffle(self.deck)
+                self.shuffled = True  # Set shuffled flag to True after shuffling
         else:
             print("Deck initialization failed. The number of cards is incorrect.")
 

@@ -87,6 +87,7 @@ class Deck:
         if self.counter < 52:
             result = self.deck[self.counter]
             self.counter += 1
+            print(f"Dealt card: {result}")  # Provide feedback on the dealt card
             return result
         else:
             print("No more cards to deal. The deck is empty. Resetting the deck.")
