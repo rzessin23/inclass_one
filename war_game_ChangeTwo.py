@@ -69,8 +69,13 @@ class Deck:
         for the_face in face:
             for the_suit in suit:
                 self.deck.append(Card(the_face, the_suit))
-        for i in range(7):
-            random.shuffle(self.deck)
+
+        # Ensure the deck has the correct number of cards before shuffling
+        if len(self.deck) == len(face) * len(suit):
+            for i in range(7):
+                random.shuffle(self.deck)
+        else:
+            print("Deck initialization failed. The number of cards is incorrect.")
 
     # Returns the top card of the deck if it exists (if we have not previously dealt 52 cards)
     # We could add in a method to automatically shuffle the deck if we reach this point
